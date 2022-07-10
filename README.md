@@ -1,6 +1,6 @@
 # YouTube Music Desktop Remote Control API
 
-Async IO API pacakage for [YouTube Music Desktop app](https://ytmdesktop.app/).
+Async IO API package for [YouTube Music Desktop app](https://ytmdesktop.app/).
 
 ## Installation
 
