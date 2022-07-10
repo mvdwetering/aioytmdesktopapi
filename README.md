@@ -10,7 +10,7 @@ python3 -m pip install aioytmdesktopapi
 
 ## Contents
 
-This package contains the `YtmDesktop` which represents the API.
+This package contains the `YtmDesktop` class which represents the API.
 Check the [API documentation](https://github.com/ytmdesktop/ytmdesktop/wiki/Remote-Control-API) to see what functionality is available and how to use it.
 
 
