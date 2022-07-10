@@ -25,13 +25,25 @@ class YtmDesktop:
         self._clientsession = clientsession
 
         # API endpoints
-        self.player = None
-        self.track = None
-        self.send_command = SendCommand(self.request)
+        self._player = None
+        self._track = None
+        self._send_command = SendCommand(self._request)
 
     @property
     def host(self):
         return self._host
+
+    @property
+    def player(self):
+        return self._player
+
+    @property
+    def track(self):
+        return self._track
+
+    @property
+    def send_command(self):
+        return self._send_command
 
     async def __aenter__(self):
         return self
@@ -46,12 +58,12 @@ class YtmDesktop:
         pass
 
     async def update(self):
-        response = await self.request("get", "")
+        response = await self._request("get", "")
         if response:
-            self.player = Player(response["player"], self.request)
-            self.track = Track(response["track"], self.request)
+            self._player = Player(response["player"], self._request)
+            self._track = Track(response["track"], self._request)
 
-    async def request(self, method: str, path: str, data: Optional[Dict] = None):
+    async def _request(self, method: str, path: str, data: Optional[Dict] = None):
         """Make a request to the API."""
 
         if self._clientsession.closed:
