@@ -84,10 +84,12 @@ class YtmDesktop:
                 method, url, json=data, headers=headers
             ) as resp:
                 logger.debug("%s, %s" % (resp.status, await resp.text("utf-8")))
-                if resp.status == 400:
-                    raise Unauthorized("{}: {}".format(resp.status, resp.text))
+                if resp.status == 401:
+                    body = await resp.text()
+                    raise Unauthorized("{}: {}".format(resp.status, body))
                 if resp.status != 200:
-                    raise RequestError("{}: {}".format(resp.status, resp.text))
+                    body = await resp.text()
+                    raise RequestError("{}: {}".format(resp.status, body))
                 return await resp.json(content_type="text/json")
         except aiohttp.client_exceptions.ClientError as err:
             raise RequestError(
