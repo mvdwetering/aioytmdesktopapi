@@ -70,7 +70,7 @@ class SendCommand:
         """Add track to library"""
         await self._send_command("player-add-library")
 
-    async def player_add_library(self, playlist_index):
+    async def player_add_playlist(self, playlist_index):
         """Add track to playlist (Needs value: Playlist index)"""
         await self._send_command("player-add-playlist", playlist_index)
 
