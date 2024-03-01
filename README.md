@@ -2,6 +2,8 @@
 
 Async IO API package for [YouTube Music Desktop app](https://ytmdesktop.app/).
 
+> This package currently supports the API used by YTMDv1
+
 ## Installation
 
 ```bash
