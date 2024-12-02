@@ -10,7 +10,7 @@ class SendCommand:
 
     async def _send_command(self, command, value=None):
         data = {"command": command}
-        if value:
+        if value is not None:
             data["value"] = value
         await self._request("POST", "", data=data)
 
